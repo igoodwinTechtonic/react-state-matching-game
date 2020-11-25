@@ -8,7 +8,10 @@ const Tile = (props) => {
   : null);
 
   return (
-    <div className='Tile' style={dynamicColor}>
+    <div 
+    className='Tile' 
+    style={dynamicColor} 
+    onClick={() => props.handleTileClicked(props.id, props.color)}>
       {props.selected || props.matched ? <props.svg /> : null }
     </div>
   )
