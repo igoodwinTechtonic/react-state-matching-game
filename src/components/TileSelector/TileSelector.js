@@ -1,16 +1,21 @@
 import React from 'react'
 import './TileSelector.css'
+import useHover from '../../hooks';
 
 const TileSelector = (props) => {
 
+  const [ ref, hovered ] = useHover();
 
-  const dropdown = (
-    <div className='tileSelectorContent' >
-      <div className='number'>4</div>
-      <div className='number'>16</div>
-      <div className='number'>36</div>
-    </div>
-  )
+  const dropdown = ((hovered)
+    ? (
+      <div className='tileSelectorContent' ref={ref}>
+        <div className='number' onClick={() => props.handleNumTileChange(4)}>4</div>
+        <div className='number' onClick={() => props.handleNumTileChange(16)}>16</div>
+        <div className='number' onClick={() => props.handleNumTileChange(36)}>36</div>
+      </div>
+    )
+    : null
+  );
 
  return (
    <div className='tileSelector'>
